@@ -1,0 +1,410 @@
+import { Building, NavigationNode, NavigationEdge } from '../types/navigation';
+
+export const buildings: Building[] = [
+  {
+    id: 'b1',
+    name: 'University Block A',
+    description: 'Main academic building with classrooms and lecture halls',
+    latitude: 30.7606,
+    longitude: 76.7285,
+    floorCount: 6
+  },
+  {
+    id: 'b2',
+    name: 'University Block B',
+    description: 'Engineering and technology departments',
+    latitude: 30.7615,
+    longitude: 76.7295,
+    floorCount: 5
+  },
+  {
+    id: 'b3',
+    name: 'Central Library',
+    description: 'Multi-floor library with study areas and resources',
+    latitude: 30.7598,
+    longitude: 76.7275,
+    floorCount: 4
+  },
+  {
+    id: 'b4',
+    name: 'Student Center',
+    description: 'Cafeteria, recreation, and student services',
+    latitude: 30.7590,
+    longitude: 76.7280,
+    floorCount: 3
+  },
+  {
+    id: 'b5',
+    name: 'Administration Block',
+    description: 'Administrative offices and meeting rooms',
+    latitude: 30.7610,
+    longitude: 76.7270,
+    floorCount: 4
+  }
+];
+
+export const navigationNodes: NavigationNode[] = [
+  {
+    id: 'n1',
+    buildingId: 'b1',
+    name: 'Block A Main Entrance',
+    type: 'entrance',
+    floor: 1,
+    latitude: 30.7606,
+    longitude: 76.7285,
+    description: 'Main entrance with security desk and information counter',
+    isAccessible: true,
+    isActive: true
+  },
+  {
+    id: 'n2',
+    buildingId: 'b1',
+    name: 'Block A Ground Floor Lobby',
+    type: 'intersection',
+    floor: 1,
+    latitude: 30.7607,
+    longitude: 76.7284,
+    description: 'Central lobby with notice boards and seating area',
+    isAccessible: true,
+    isActive: true
+  },
+  {
+    id: 'n3',
+    buildingId: 'b1',
+    name: 'Lecture Hall 101',
+    type: 'room',
+    floor: 1,
+    latitude: 30.7608,
+    longitude: 76.7286,
+    description: 'Large lecture hall with 200 seating capacity',
+    isAccessible: true,
+    isActive: true
+  },
+  {
+    id: 'n4',
+    buildingId: 'b1',
+    name: 'Computer Lab 301',
+    type: 'room',
+    floor: 3,
+    latitude: 30.7607,
+    longitude: 76.7283,
+    description: 'State-of-the-art computer laboratory with 50 workstations',
+    isAccessible: true,
+    isActive: true
+  },
+  {
+    id: 'n5',
+    buildingId: 'b1',
+    name: 'Faculty Offices Floor 2',
+    type: 'room',
+    floor: 2,
+    latitude: 30.7609,
+    longitude: 76.7284,
+    description: 'Faculty offices and consultation rooms',
+    isAccessible: true,
+    isActive: true
+  },
+  {
+    id: 'n6',
+    buildingId: 'b4',
+    name: 'University Cafeteria',
+    type: 'room',
+    floor: 1,
+    latitude: 30.7590,
+    longitude: 76.7280,
+    description: 'Main cafeteria with multiple food counters and seating for 500',
+    isAccessible: true,
+    isActive: true
+  },
+  {
+    id: 'n7',
+    buildingId: 'b1',
+    name: 'Block A Floor 2 Elevator',
+    type: 'elevator',
+    floor: 2,
+    latitude: 30.76065,
+    longitude: 76.72845,
+    description: 'Elevator access to all floors',
+    isAccessible: true,
+    isActive: true
+  },
+  {
+    id: 'n8',
+    buildingId: 'b1',
+    name: 'Block A Floor 3 Elevator',
+    type: 'elevator',
+    floor: 3,
+    latitude: 30.76065,
+    longitude: 76.72845,
+    description: 'Elevator access to all floors',
+    isAccessible: true,
+    isActive: true
+  },
+  {
+    id: 'n9',
+    buildingId: 'b2',
+    name: 'Block B Main Entrance',
+    type: 'entrance',
+    floor: 1,
+    latitude: 30.7615,
+    longitude: 76.7295,
+    description: 'Engineering block entrance',
+    isAccessible: true,
+    isActive: true
+  },
+  {
+    id: 'n10',
+    buildingId: 'b2',
+    name: 'Engineering Workshop',
+    type: 'room',
+    floor: 1,
+    latitude: 30.7616,
+    longitude: 76.7294,
+    description: 'Mechanical and electrical engineering workshop',
+    isAccessible: true,
+    isActive: true
+  },
+  {
+    id: 'n11',
+    buildingId: 'b2',
+    name: 'Electronics Lab',
+    type: 'room',
+    floor: 2,
+    latitude: 30.7617,
+    longitude: 76.7296,
+    description: 'Electronics and communication laboratory',
+    isAccessible: true,
+    isActive: true
+  },
+  {
+    id: 'n12',
+    buildingId: 'b3',
+    name: 'Library Main Entrance',
+    type: 'entrance',
+    floor: 1,
+    latitude: 30.7598,
+    longitude: 76.7275,
+    description: 'Central library main entrance',
+    isAccessible: true,
+    isActive: true
+  },
+  {
+    id: 'n13',
+    buildingId: 'b3',
+    name: 'Library Issue & Return Counter',
+    type: 'intersection',
+    floor: 1,
+    latitude: 30.7599,
+    longitude: 76.7274,
+    description: 'Book issue and return counter',
+    isAccessible: true,
+    isActive: true
+  },
+  {
+    id: 'n14',
+    buildingId: 'b3',
+    name: 'Reading Hall',
+    type: 'room',
+    floor: 2,
+    latitude: 30.7600,
+    longitude: 76.7275,
+    description: 'Quiet reading area with 300 seats',
+    isAccessible: true,
+    isActive: true
+  },
+  {
+    id: 'n15',
+    buildingId: 'b3',
+    name: 'Digital Library',
+    type: 'room',
+    floor: 3,
+    latitude: 30.7599,
+    longitude: 76.7276,
+    description: 'Digital resources and computer workstations',
+    isAccessible: true,
+    isActive: true
+  },
+  {
+    id: 'n16',
+    buildingId: 'b5',
+    name: 'Administration Office',
+    type: 'room',
+    floor: 1,
+    latitude: 30.7610,
+    longitude: 76.7270,
+    description: 'Main administrative office',
+    isAccessible: true,
+    isActive: true
+  },
+  {
+    id: 'n17',
+    buildingId: 'b5',
+    name: 'Registrar Office',
+    type: 'room',
+    floor: 2,
+    latitude: 30.7611,
+    longitude: 76.7271,
+    description: 'Student records and registration office',
+    isAccessible: true,
+    isActive: true
+  },
+  {
+    id: 'n18',
+    buildingId: 'b4',
+    name: 'Sports Complex',
+    type: 'room',
+    floor: 1,
+    latitude: 30.7589,
+    longitude: 76.7279,
+    description: 'Indoor sports facilities and gymnasium',
+    isAccessible: true,
+    isActive: true
+  },
+  {
+    id: 'n19',
+    buildingId: 'b4',
+    name: 'Student Services Office',
+    type: 'room',
+    floor: 2,
+    latitude: 30.7591,
+    longitude: 76.7281,
+    description: 'Career counseling and placement services',
+    isAccessible: true,
+    isActive: true
+  },
+  {
+    id: 'n20',
+    buildingId: 'b1',
+    name: 'Auditorium',
+    type: 'room',
+    floor: 1,
+    latitude: 30.7605,
+    longitude: 76.7286,
+    description: 'Main auditorium with 500 seating capacity',
+    isAccessible: true,
+    isActive: true
+  },
+  {
+    id: 'n21',
+    buildingId: 'b4',
+    name: 'Student Center Main Entrance',
+    type: 'entrance',
+    floor: 1,
+    latitude: 30.7590,
+    longitude: 76.7280,
+    description: 'Student center entrance',
+    isAccessible: true,
+    isActive: true
+  },
+  {
+    id: 'n22',
+    buildingId: 'b5',
+    name: 'Administration Block Entrance',
+    type: 'entrance',
+    floor: 1,
+    latitude: 30.7610,
+    longitude: 76.7270,
+    description: 'Administration block main entrance',
+    isAccessible: true,
+    isActive: true
+  },
+  {
+    id: 'n23',
+    buildingId: 'b1',
+    name: 'Classroom 201',
+    type: 'room',
+    floor: 2,
+    latitude: 30.7607,
+    longitude: 76.7285,
+    description: 'Standard classroom with 60 seating capacity',
+    isAccessible: true,
+    isActive: true
+  },
+  {
+    id: 'n24',
+    buildingId: 'b2',
+    name: 'CAD Lab',
+    type: 'room',
+    floor: 3,
+    latitude: 30.7616,
+    longitude: 76.7295,
+    description: 'Computer-aided design laboratory',
+    isAccessible: true,
+    isActive: true
+  },
+  {
+    id: 'n25',
+    buildingId: 'b4',
+    name: 'Bookstore',
+    type: 'room',
+    floor: 1,
+    latitude: 30.7591,
+    longitude: 76.7279,
+    description: 'University bookstore and stationery shop',
+    isAccessible: true,
+    isActive: true
+  },
+  {
+    id: 'n26',
+    buildingId: 'b1',
+    name: 'Restrooms Block A Floor 1',
+    type: 'restroom',
+    floor: 1,
+    latitude: 30.7606,
+    longitude: 76.7284,
+    description: 'Ground floor restroom facilities',
+    isAccessible: true,
+    isActive: true
+  },
+  {
+    id: 'n27',
+    buildingId: 'b3',
+    name: 'Study Rooms',
+    type: 'room',
+    floor: 2,
+    latitude: 30.7598,
+    longitude: 76.7274,
+    description: 'Private group study rooms',
+    isAccessible: true,
+    isActive: true
+  }
+];
+
+export const navigationEdges: NavigationEdge[] = [
+  { id: 'e1', fromNodeId: 'n1', toNodeId: 'n2', weight: 10, isBidirectional: true, isAccessible: true, isActive: true, edgeType: 'hallway' },
+  { id: 'e2', fromNodeId: 'n2', toNodeId: 'n3', weight: 15, isBidirectional: true, isAccessible: true, isActive: true, edgeType: 'hallway' },
+  { id: 'e3', fromNodeId: 'n2', toNodeId: 'n20', weight: 25, isBidirectional: true, isAccessible: true, isActive: true, edgeType: 'hallway' },
+  { id: 'e4', fromNodeId: 'n2', toNodeId: 'n7', weight: 5, isBidirectional: true, isAccessible: true, isActive: true, edgeType: 'elevator' },
+  { id: 'e5', fromNodeId: 'n7', toNodeId: 'n5', weight: 12, isBidirectional: true, isAccessible: true, isActive: true, edgeType: 'hallway' },
+  { id: 'e6', fromNodeId: 'n7', toNodeId: 'n8', weight: 3, isBidirectional: true, isAccessible: true, isActive: true, edgeType: 'elevator' },
+  { id: 'e7', fromNodeId: 'n8', toNodeId: 'n4', weight: 18, isBidirectional: true, isAccessible: true, isActive: true, edgeType: 'hallway' },
+  { id: 'e8', fromNodeId: 'n12', toNodeId: 'n13', weight: 8, isBidirectional: true, isAccessible: true, isActive: true, edgeType: 'hallway' },
+  { id: 'e9', fromNodeId: 'n13', toNodeId: 'n14', weight: 12, isBidirectional: true, isAccessible: true, isActive: true, edgeType: 'hallway' },
+  { id: 'e10', fromNodeId: 'n13', toNodeId: 'n27', weight: 10, isBidirectional: true, isAccessible: true, isActive: true, edgeType: 'hallway' },
+  { id: 'e11', fromNodeId: 'n14', toNodeId: 'n15', weight: 15, isBidirectional: true, isAccessible: true, isActive: true, edgeType: 'hallway' },
+  { id: 'e12', fromNodeId: 'n1', toNodeId: 'n12', weight: 110, isBidirectional: true, isAccessible: true, isActive: true, edgeType: 'outdoor' },
+  { id: 'e13', fromNodeId: 'n1', toNodeId: 'n21', weight: 180, isBidirectional: true, isAccessible: true, isActive: true, edgeType: 'outdoor' },
+  { id: 'e14', fromNodeId: 'n1', toNodeId: 'n9', weight: 140, isBidirectional: true, isAccessible: true, isActive: true, edgeType: 'outdoor' },
+  { id: 'e15', fromNodeId: 'n21', toNodeId: 'n6', weight: 10, isBidirectional: true, isAccessible: true, isActive: true, edgeType: 'hallway' },
+  { id: 'e16', fromNodeId: 'n21', toNodeId: 'n18', weight: 15, isBidirectional: true, isAccessible: true, isActive: true, edgeType: 'hallway' },
+  { id: 'e17', fromNodeId: 'n21', toNodeId: 'n25', weight: 12, isBidirectional: true, isAccessible: true, isActive: true, edgeType: 'hallway' },
+  { id: 'e18', fromNodeId: 'n21', toNodeId: 'n19', weight: 8, isBidirectional: true, isAccessible: true, isActive: true, edgeType: 'elevator' },
+  { id: 'e19', fromNodeId: 'n9', toNodeId: 'n10', weight: 12, isBidirectional: true, isAccessible: true, isActive: true, edgeType: 'hallway' },
+  { id: 'e20', fromNodeId: 'n9', toNodeId: 'n11', weight: 20, isBidirectional: true, isAccessible: true, isActive: true, edgeType: 'hallway' },
+  { id: 'e21', fromNodeId: 'n11', toNodeId: 'n24', weight: 15, isBidirectional: true, isAccessible: true, isActive: true, edgeType: 'hallway' },
+  { id: 'e22', fromNodeId: 'n1', toNodeId: 'n22', weight: 200, isBidirectional: true, isAccessible: true, isActive: true, edgeType: 'outdoor' },
+  { id: 'e23', fromNodeId: 'n22', toNodeId: 'n16', weight: 8, isBidirectional: true, isAccessible: true, isActive: true, edgeType: 'hallway' },
+  { id: 'e24', fromNodeId: 'n22', toNodeId: 'n17', weight: 12, isBidirectional: true, isAccessible: true, isActive: true, edgeType: 'hallway' },
+  { id: 'e25', fromNodeId: 'n2', toNodeId: 'n26', weight: 8, isBidirectional: true, isAccessible: true, isActive: true, edgeType: 'hallway' },
+  { id: 'e26', fromNodeId: 'n7', toNodeId: 'n23', weight: 10, isBidirectional: true, isAccessible: true, isActive: true, edgeType: 'hallway' },
+  { id: 'e27', fromNodeId: 'n1', toNodeId: 'n26', weight: 6, isBidirectional: true, isAccessible: true, isActive: true, edgeType: 'hallway' }
+];
+
+export const popularDestinations = [
+  { nodeId: 'n6', searchCount: 450 },
+  { nodeId: 'n12', searchCount: 380 },
+  { nodeId: 'n3', searchCount: 290 },
+  { nodeId: 'n4', searchCount: 220 },
+  { nodeId: 'n16', searchCount: 310 },
+  { nodeId: 'n20', searchCount: 185 }
+];
